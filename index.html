@@ -2,413 +2,56 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>R PERFUME | Premium Fragrances</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#101010">
+<title>R PERFUME | Fragrance Store</title>
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    background: #101010;
-    color: white;
-}
-
-header {
-    background: #080808;
-    padding: 20px;
-    text-align: center;
-    border-bottom: 2px solid #e50914;
-}
-
-header h1 {
-    color: #ff2633;
-    font-size: 32px;
-    letter-spacing: 3px;
-}
-
-header p {
-    color: #ccc;
-    margin-top: 8px;
-}
-
-nav {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    padding: 15px;
-    background: #1c1c1c;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.hero {
-    text-align: center;
-    padding: 55px 15px;
-    background: linear-gradient(135deg, #280000, #101010);
-}
-
-.hero h2 {
-    font-size: 34px;
-    margin-bottom: 15px;
-}
-
-.hero p {
-    color: #ddd;
-    margin-bottom: 25px;
-}
-
-.button {
-    display: inline-block;
-    padding: 12px 22px;
-    background: #e50914;
-    color: white;
-    text-decoration: none;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-.search-box {
-    display: block;
-    width: 90%;
-    max-width: 500px;
-    margin: 25px auto;
-    padding: 14px;
-    border-radius: 8px;
-    border: 1px solid #555;
-    background: #222;
-    color: white;
-    font-size: 16px;
-}
-
-h2.section-title {
-    text-align: center;
-    margin: 30px 0 10px;
-    color: #ff2633;
-}
-
-.products {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 18px;
-    padding: 20px;
-    max-width: 1100px;
-    margin: auto;
-}
-
-.card {
-    background: #202020;
-    border: 1px solid #383838;
-    border-radius: 12px;
-    padding: 15px;
-    text-align: center;
-}
-
-.perfume-image {
-    height: 125px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 65px;
-    background: #171717;
-    border-radius: 8px;
-    margin-bottom: 15px;
-}
-
-.card h3 {
-    font-size: 17px;
-    margin-bottom: 8px;
-}
-
-.brand {
-    color: #aaa;
-    font-size: 13px;
-    margin-bottom: 10px;
-}
-
-.price {
-    color: #ff2633;
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 12px;
-}
-
-.card button {
-    width: 100%;
-    margin-top: 8px;
-}
-
-.cart-section {
-    margin: 25px 15px;
-    padding: 20px;
-    background: #202020;
-    border-radius: 12px;
-}
-
-.cart-section h2 {
-    color: #ff2633;
-    margin-bottom: 15px;
-}
-
-#cart-items {
-    line-height: 2;
-    margin-bottom: 15px;
-}
-
-footer {
-    margin-top: 30px;
-    background: #080808;
-    text-align: center;
-    padding: 25px 15px;
-    color: #aaa;
-    line-height: 2;
-}
-
-footer strong {
-    color: #ff2633;
-}
-
-@media (max-width: 400px) {
-    .hero h2 {
-        font-size: 27px;
-    }
-
-    .products {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 10px;
-        padding: 10px;
-    }
-}
+:root{--bg:#0d0d0f;--panel:#171719;--panel2:#202024;--red:#e51b32;--gold:#d9b56d;--muted:#b8b8bf;--line:#333338}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:#fff;font-family:Arial,Helvetica,sans-serif}button,input,select{font:inherit}button,a{touch-action:manipulation}a{color:inherit;text-decoration:none}.wrap{max-width:1150px;margin:auto;padding:0 16px}
+header{position:sticky;top:0;z-index:10;background:#0b0b0df2;backdrop-filter:blur(12px);border-bottom:1px solid #29292d}.top{min-height:70px;display:flex;align-items:center;justify-content:space-between;gap:12px}.logo{font-weight:900;letter-spacing:3px;font-size:25px}.logo span{color:var(--red)}.tag{font-size:11px;letter-spacing:2px;color:var(--gold);margin-top:4px}.nav{display:flex;gap:18px;align-items:center;font-size:14px}.nav a:hover{color:var(--gold)}.cart-pill{border:1px solid var(--gold);padding:9px 12px;border-radius:999px;white-space:nowrap}
+.hero{padding:58px 0 50px;background:radial-gradient(ellipse at 80% 20%,#6c1424 0,transparent 42%),linear-gradient(115deg,#171719,#0b0b0d 65%);border-bottom:1px solid #27272b}.hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:25px;align-items:center}.eyebrow{color:var(--gold);letter-spacing:3px;text-transform:uppercase;font-size:12px}.hero h1{font-size:clamp(34px,6vw,64px);line-height:1.03;margin:16px 0}.hero h1 span{color:var(--red)}.hero p{color:var(--muted);line-height:1.7;max-width:540px}.hero-art{min-height:250px;display:grid;place-items:center;border:1px solid #4b3136;border-radius:22px;background:linear-gradient(145deg,#262023,#101012);font-size:110px;box-shadow:0 20px 60px #0008}.btn{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:10px;padding:12px 16px;background:var(--red);color:white;font-weight:700;cursor:pointer}.btn:hover{filter:brightness(1.12)}.btn.secondary{background:transparent;border:1px solid var(--gold);color:var(--gold)}.btn.small{padding:9px 11px;font-size:13px}.section{padding:32px 0}.section-head{display:flex;justify-content:space-between;gap:12px;align-items:end;flex-wrap:wrap}.section h2{margin:0 0 8px;font-size:27px}.muted{color:var(--muted)}.tools{display:flex;gap:9px;flex-wrap:wrap;margin:20px 0}.tools input,.tools select,.admin-form input,.admin-form select,.admin-form textarea{background:#1b1b1f;color:white;border:1px solid #414148;border-radius:9px;padding:12px;min-width:0}.tools input{flex:1;min-width:190px}.tools select{max-width:210px}.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;min-width:0}.product-art{height:170px;display:grid;place-items:center;background:radial-gradient(circle at 50% 35%,#42242b,#1a171b 65%);font-size:70px;position:relative}.product-art small{position:absolute;top:10px;left:10px;background:#d9b56d;color:#17120a;padding:5px 8px;border-radius:999px;font-size:10px;font-weight:bold}.card-body{padding:14px;display:flex;flex-direction:column;gap:8px;flex:1}.brand{font-size:11px;letter-spacing:1.4px;color:var(--gold);text-transform:uppercase}.card h3{font-size:17px;margin:0}.desc{font-size:12px;color:var(--muted);line-height:1.45}.price-row{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:auto;padding-top:7px}.price{font-size:20px;font-weight:800}.size{font-size:12px;color:var(--muted)}.card-actions{display:flex;gap:8px;margin-top:8px}.card-actions .btn{flex:1}.empty{padding:30px;text-align:center;border:1px dashed #444;border-radius:12px;color:var(--muted);grid-column:1/-1}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.feature{padding:18px;border:1px solid var(--line);border-radius:14px;background:var(--panel)}.feature b{display:block;margin-bottom:8px;color:var(--gold)}.cart-layout{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}.box{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:18px}.cart-item{display:grid;grid-template-columns:1fr auto;gap:10px;padding:13px 0;border-bottom:1px solid var(--line)}.qty{display:flex;align-items:center;gap:8px;margin-top:8px}.qty button{background:#2b2b30;border:1px solid #494950;color:#fff;border-radius:6px;padding:4px 10px;cursor:pointer}.totals{display:flex;justify-content:space-between;margin:12px 0}.note{font-size:12px;color:var(--muted);line-height:1.6}.admin{background:#121214;border-top:1px solid var(--line)}.admin-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.admin-form textarea{grid-column:1/-1;min-height:80px}.admin-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}.status{font-size:12px;color:var(--gold);margin-top:10px;line-height:1.5}.footer{padding:26px 0;border-top:1px solid var(--line);color:var(--muted);font-size:13px;line-height:1.7}.footer b{color:#fff}.hidden{display:none!important}
+@media(max-width:850px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero-grid{grid-template-columns:1fr}.hero-art{min-height:180px;font-size:85px}.cart-layout{grid-template-columns:1fr}.nav{gap:10px;font-size:12px}}
+@media(max-width:480px){.top{padding:12px 0;align-items:flex-start}.logo{font-size:21px}.nav{display:grid;grid-template-columns:repeat(2,auto);gap:8px}.grid{gap:10px}.product-art{height:125px;font-size:52px}.card-body{padding:10px}.card h3{font-size:15px}.price{font-size:17px}.hero{padding:38px 0}.features{grid-template-columns:1fr}.admin-form{grid-template-columns:1fr}.admin-form textarea{grid-column:auto}.section h2{font-size:23px}}
 </style>
 </head>
-
 <body>
-
-<header>
-    <h1>R PERFUME</h1>
-    <p>Luxury Fragrances • Premium Collection</p>
-</header>
-
-<nav>
-    <a href="#home">Home</a>
-    <a href="#products">Perfumes</a>
-    <a href="#cart">My Cart 🛒</a>
-</nav>
-
-<section class="hero" id="home">
-    <h2>Discover Your Signature Scent</h2>
-    <p>Find your fragrance. Define your style.</p>
-    <a href="#products" class="button">Shop Now</a>
-</section>
-
-<h2 class="section-title" id="products">
-    Our Perfume Collection
-</h2>
-
-<input
-    type="text"
-    id="search"
-    class="search-box"
-    placeholder="🔍 Search perfumes or brands..."
-    oninput="searchProducts()"
->
-
-<div class="products" id="product-list"></div>
-
-<section class="cart-section" id="cart">
-    <h2>🛒 Your Shopping Cart</h2>
-
-    <div id="cart-items">Your cart is empty.</div>
-
-    <h3>Total: ₹<span id="total">0</span></h3>
-
-    <br>
-
-    <button class="button" onclick="checkout()">
-        Order on WhatsApp
-    </button>
-</section>
-
-<footer>
-    <strong>R PERFUME</strong><br>
-    Your Destination for Fragrance<br>
-    Contact us to place your order.<br>
-    © 2026 R PERFUME. All rights reserved.
-</footer>
-
+<header><div class="wrap top"><div><div class="logo">R <span>PERFUME</span></div><div class="tag">FIND YOUR SIGNATURE SCENT</div></div><nav class="nav"><a href="#shop">Shop</a><a href="#cart">Cart</a><a href="#about">About</a><a href="#admin">Admin</a><a class="cart-pill" href="#cart">🛒 <span id="cart-count">0</span></a></nav></div></header>
+<main>
+<section class="hero"><div class="wrap hero-grid"><div><div class="eyebrow">Fragrance • Style • You</div><h1>A scent that says <span>everything.</span></h1><p>Explore fragrances for every mood and budget. Add your favourites to the cart and send your order directly to our WhatsApp—no online payment required.</p><a class="btn" href="#shop">Explore Collection&nbsp; →</a></div><div class="hero-art" aria-label="Perfume illustration">🧴✨</div></div></section>
+<section class="section wrap" id="shop"><div class="section-head"><div><div class="eyebrow">THE COLLECTION</div><h2>Find your fragrance</h2><div class="muted">Demo products and prices — update them to match your actual stock.</div></div></div>
+<div class="tools"><input id="search" type="search" placeholder="Search perfume or brand…" aria-label="Search products"><select id="category" aria-label="Filter category"><option value="all">All price ranges</option><option value="budget">₹100–₹300</option><option value="mid">₹301–₹700</option><option value="premium">₹701–₹1500+</option></select><select id="sort" aria-label="Sort products"><option value="featured">Featured</option><option value="low">Price: low to high</option><option value="high">Price: high to low</option><option value="name">Name A–Z</option></select></div>
+<div class="grid" id="products"></div></section>
+<section class="section wrap" id="cart"><div class="eyebrow">YOUR BAG</div><h2>Shopping cart</h2><div class="cart-layout"><div class="box"><div id="cart-items" class="muted">Your cart is empty.</div></div><div class="box"><h3>Order summary</h3><div class="totals"><span>Items</span><b id="summary-count">0</b></div><div class="totals"><span>Total</span><b id="summary-total">₹0</b></div><button class="btn" style="width:100%" onclick="checkout()">Order on WhatsApp</button><p class="note">No online payment is collected on this website. Confirm availability, delivery charges and payment method with the shop before placing your order.</p></div></div></section>
+<section class="section wrap" id="about"><div class="eyebrow">WHY R PERFUME</div><h2>Fragrance made personal</h2><div class="features"><div class="feature"><b>✦ Options for every budget</b><span class="muted">Explore affordable and premium fragrance choices.</span></div><div class="feature"><b>✦ Easy WhatsApp ordering</b><span class="muted">Review your cart and send the order details to the shop.</span></div><div class="feature"><b>✦ Personal service</b><span class="muted">Confirm product availability and delivery details directly.</span></div></div></section>
+<section class="section admin" id="admin"><div class="wrap"><div class="eyebrow">SHOP OWNER TOOLS</div><h2>Manage products (this device only)</h2><p class="note">This demo admin area is not password-protected and saves changes only in this browser. It is not a secure shared admin panel and does not save customer orders to a server. Do not enter confidential information here.</p><div class="box"><h3>Add a product</h3><div class="admin-form"><input id="p-name" placeholder="Product name"><input id="p-brand" placeholder="Brand / maker"><input id="p-price" type="number" min="1" placeholder="Price in ₹"><input id="p-size" placeholder="Size (e.g. 50 ml)"><select id="p-category"><option value="budget">₹100–₹300</option><option value="mid">₹301–₹700</option><option value="premium">₹701–₹1500+</option></select><input id="p-icon" placeholder="Emoji / icon (e.g. 🧴)"><textarea id="p-desc" placeholder="Short description"></textarea></div><div class="admin-actions"><button class="btn" onclick="addProduct()">Add product</button><button class="btn secondary" onclick="exportProducts()">Export product list</button><button class="btn secondary" onclick="resetProducts()">Reset demo products</button></div><div class="status" id="admin-status" aria-live="polite"></div></div></div></section>
+</main>
+<footer class="footer"><div class="wrap"><b>R PERFUME</b><br>Fragrance • Style • You<br>Demo store. Prices, stock and product authenticity must be verified by the shop owner.<br>© <span id="year"></span> R PERFUME</div></footer>
 <script>
-const perfumes = [
-    {
-        name: "Bleu de Chanel",
-        brand: "CHANEL",
-        price: 8500,
-        icon: "🧴"
-    },
-    {
-        name: "Sauvage",
-        brand: "DIOR",
-        price: 7500,
-        icon: "🌑"
-    },
-    {
-        name: "Oud Wood",
-        brand: "TOM FORD",
-        price: 9500,
-        icon: "🪵"
-    },
-    {
-        name: "Eros",
-        brand: "VERSACE",
-        price: 6500,
-        icon: "💎"
-    },
-    {
-        name: "Acqua di Gio",
-        brand: "GIORGIO ARMANI",
-        price: 6000,
-        icon: "🌊"
-    },
-    {
-        name: "Explorer",
-        brand: "MONTBLANC",
-        price: 4500,
-        icon: "🌍"
-    }
+const WHATSAPP_NUMBER = "919699955142"; // Change if the shop WhatsApp number is different.
+const initialProducts = [
+{id:1,name:"Everyday Fresh",brand:"R PERFUME PICKS",price:199,size:"30 ml",category:"budget",icon:"🌿",desc:"A fresh everyday fragrance. Demo listing."},
+{id:2,name:"Classic Musk",brand:"R PERFUME PICKS",price:299,size:"30 ml",category:"budget",icon:"🌙",desc:"A warm musk-inspired scent. Demo listing."},
+{id:3,name:"Urban Blue",brand:"R PERFUME PICKS",price:499,size:"50 ml",category:"mid",icon:"🌊",desc:"A crisp, modern fragrance. Demo listing."},
+{id:4,name:"Amber Night",brand:"R PERFUME PICKS",price:699,size:"50 ml",category:"mid",icon:"✨",desc:"A rich amber-inspired scent. Demo listing."},
+{id:5,name:"Designer Fresh",brand:"BRANDED — VERIFY STOCK",price:999,size:"50 ml",category:"premium",icon:"💎",desc:"Replace with the exact product and verified price before selling."},
+{id:6,name:"Signature Intense",brand:"R PERFUME PICKS",price:1499,size:"100 ml",category:"premium",icon:"🖤",desc:"A bold evening fragrance. Demo listing."}
 ];
-
-let cart = [];
-
-function displayProducts(list) {
-    const container = document.getElementById("product-list");
-
-    container.innerHTML = "";
-
-    if (list.length === 0) {
-        container.innerHTML = "<p>No perfumes found.</p>";
-        return;
-    }
-
-    list.forEach(function(perfume) {
-        const index = perfumes.indexOf(perfume);
-
-        container.innerHTML += `
-            <div class="card">
-                <div class="perfume-image">
-                    ${perfume.icon}
-                </div>
-
-                <h3>${perfume.name}</h3>
-
-                <p class="brand">${perfume.brand}</p>
-
-                <p class="price">₹${perfume.price.toLocaleString("en-IN")}</p>
-
-                <button class="button"
-                    onclick="addToCart(${index})">
-                    Add to Cart
-                </button>
-            </div>
-        `;
-    });
-}
-
-function searchProducts() {
-    const query = document
-        .getElementById("search")
-        .value.toLowerCase();
-
-    const filtered = perfumes.filter(function(perfume) {
-        return perfume.name.toLowerCase().includes(query) ||
-               perfume.brand.toLowerCase().includes(query);
-    });
-
-    displayProducts(filtered);
-}
-
-function addToCart(index) {
-    cart.push(perfumes[index]);
-    updateCart();
-
-    alert(perfumes[index].name + " added to cart!");
-}
-
-function updateCart() {
-    const container = document.getElementById("cart-items");
-    const totalElement = document.getElementById("total");
-
-    if (cart.length === 0) {
-        container.innerHTML = "Your cart is empty.";
-        totalElement.textContent = "0";
-        return;
-    }
-
-    let total = 0;
-    container.innerHTML = "";
-
-    cart.forEach(function(item, index) {
-        total += item.price;
-
-        container.innerHTML += `
-            <div>
-                ${item.name} — ₹${item.price.toLocaleString("en-IN")}
-                <button onclick="removeItem(${index})"
-                    style="margin-left:8px">
-                    Remove
-                </button>
-            </div>
-        `;
-    });
-
-    totalElement.textContent = total.toLocaleString("en-IN");
-}
-
-function removeItem(index) {
-    cart.splice(index, 1);
-    updateCart();
-}
-
-function checkout() {
-    if (cart.length === 0) {
-        alert("Please add a perfume to your cart first!");
-        return;
-    }
-
-    let total = 0;
-
-    let message = "Hello R PERFUME! I want to order:\n\n";
-
-    cart.forEach(function(item, index) {
-        message += (index + 1) + ". " +
-                   item.name + " - ₹" + item.price + "\n";
-
-        total += item.price;
-    });
-
-    message += "\nTotal: ₹" + total;
-    message += "\nPlease confirm availability and delivery details.";
-
-    // Replace this number if your shop's WhatsApp number changes.
-    const phone = "919699955142";
-
-    const url = "https://wa.me/" + phone +
-                "?text=" + encodeURIComponent(message);
-
-    window.open(url, "_blank");
-}
-
-displayProducts(perfumes);
+let products = load("rperfume-products", initialProducts);
+let cart = load("rperfume-cart", []);
+function load(key,fallback){try{const v=localStorage.getItem(key);return v?JSON.parse(v):JSON.parse(JSON.stringify(fallback))}catch(e){return JSON.parse(JSON.stringify(fallback))}}
+function save(){try{localStorage.setItem("rperfume-products",JSON.stringify(products));localStorage.setItem("rperfume-cart",JSON.stringify(cart))}catch(e){}}
+function money(n){return "₹"+Number(n).toLocaleString("en-IN")}
+function renderProducts(){const q=document.getElementById("search").value.trim().toLowerCase(),cat=document.getElementById("category").value,sort=document.getElementById("sort").value;let list=products.filter(p=>(p.name+" "+p.brand+" "+p.desc).toLowerCase().includes(q)&&(cat==="all"||p.category===cat));if(sort==="low")list.sort((a,b)=>a.price-b.price);if(sort==="high")list.sort((a,b)=>b.price-a.price);if(sort==="name")list.sort((a,b)=>a.name.localeCompare(b.name));const el=document.getElementById("products");if(!list.length){el.innerHTML='<div class="empty">No products found. Try another search.</div>';return}el.innerHTML=list.map(p=>`<article class="card"><div class="product-art"><small>${p.size||"Fragrance"}</small>${escapeHTML(p.icon||"🧴")}</div><div class="card-body"><div class="brand">${escapeHTML(p.brand)}</div><h3>${escapeHTML(p.name)}</h3><div class="desc">${escapeHTML(p.desc||"Fragrance")}</div><div class="price-row"><span class="price">${money(p.price)}</span><span class="size">${escapeHTML(p.size||"")}</span></div><div class="card-actions"><button class="btn small" onclick="addToCart(${p.id})">Add to cart</button></div></div></article>`).join("")}
+function escapeHTML(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function addToCart(id){const p=products.find(x=>x.id===id);if(!p)return;const found=cart.find(x=>x.id===id);if(found)found.qty++;else cart.push({id:p.id,name:p.name,brand:p.brand,price:p.price,size:p.size,qty:1});save();renderCart();document.getElementById("cart").scrollIntoView({behavior:"smooth"});}
+function changeQty(id,delta){const item=cart.find(x=>x.id===id);if(!item)return;item.qty+=delta;if(item.qty<=0)cart=cart.filter(x=>x.id!==id);save();renderCart()}
+function renderCart(){const el=document.getElementById("cart-items");if(!cart.length)el.innerHTML='<p class="muted">Your cart is empty.</p>';else el.innerHTML=cart.map(i=>`<div class="cart-item"><div><b>${escapeHTML(i.name)}</b><div class="note">${money(i.price)} each · ${escapeHTML(i.size||"")}</div><div class="qty"><button aria-label="Decrease quantity" onclick="changeQty(${i.id},-1)">−</button><span>${i.qty}</span><button aria-label="Increase quantity" onclick="changeQty(${i.id},1)">+</button><button class="btn small secondary" onclick="changeQty(${i.id},-${i.qty})">Remove</button></div></div><b>${money(i.price*i.qty)}</b></div>`).join("");const count=cart.reduce((s,i)=>s+i.qty,0),total=cart.reduce((s,i)=>s+i.price*i.qty,0);document.getElementById("cart-count").textContent=count;document.getElementById("summary-count").textContent=count;document.getElementById("summary-total").textContent=money(total)}
+function checkout(){if(!cart.length){alert("Your cart is empty. Add a perfume first.");return}const total=cart.reduce((s,i)=>s+i.price*i.qty,0);let msg="Hello R PERFUME! I would like to place an order:\n\n";cart.forEach((i,n)=>msg+=`${n+1}. ${i.name} (${i.size||"size not specified"}) x ${i.qty} — ${money(i.price*i.qty)}\n`);msg+=`\nEstimated total: ${money(total)}\nPlease confirm availability, delivery charges, and payment on delivery options.`;window.open("https://wa.me/"+WHATSAPP_NUMBER+"?text="+encodeURIComponent(msg),"_blank")}
+function addProduct(){const name=document.getElementById("p-name").value.trim(),brand=document.getElementById("p-brand").value.trim()||"R PERFUME",price=Number(document.getElementById("p-price").value),size=document.getElementById("p-size").value.trim(),category=document.getElementById("p-category").value,icon=document.getElementById("p-icon").value.trim()||"🧴",desc=document.getElementById("p-desc").value.trim()||"Fragrance";if(!name||!Number.isFinite(price)||price<=0){document.getElementById("admin-status").textContent="Enter a product name and a valid price.";return}products.push({id:Date.now(),name,brand,price,size,category,icon,desc});save();renderProducts();["p-name","p-brand","p-price","p-size","p-icon","p-desc"].forEach(id=>document.getElementById(id).value="");document.getElementById("admin-status").textContent="Product added on this device. It is not uploaded to a shared database."}
+function exportProducts(){const blob=new Blob([JSON.stringify(products,null,2)],{type:"application/json"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download="r-perfume-products.json";a.click();URL.revokeObjectURL(url);document.getElementById("admin-status").textContent="Product list exported."}
+function resetProducts(){if(!confirm("Reset the product list to demo products? This removes locally added products."))return;products=JSON.parse(JSON.stringify(initialProducts));save();renderProducts();document.getElementById("admin-status").textContent="Demo products restored."}
+document.getElementById("search").addEventListener("input",renderProducts);document.getElementById("category").addEventListener("change",renderProducts);document.getElementById("sort").addEventListener("change",renderProducts);document.getElementById("year").textContent=new Date().getFullYear();renderProducts();renderCart();
 </script>
-
 </body>
 </html>
