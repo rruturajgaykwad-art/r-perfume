@@ -1,394 +1,1067 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#101010">
-  <title>R PERFUME | Premium Fragrances</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#101010">
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<title>R PERFUME | Fragrance Store</title>
 
-    body {
-      background: #101010;
-      color: #fff;
-      font-family: Arial, sans-serif;
-    }
+<style>
+:root {
+  --bg: #0d0d0f;
+  --panel: #171719;
+  --red: #e51b32;
+  --gold: #d9b56d;
+  --muted: #b8b8bf;
+  --line: #333338;
+}
 
-    header {
-      background: #080808;
-      padding: 22px 15px;
-      text-align: center;
-      border-bottom: 1px solid #c9a44c;
-    }
+* {
+  box-sizing: border-box;
+}
 
-    header h1 {
-      color: #d9b65d;
-      letter-spacing: 4px;
-      font-size: 30px;
-    }
+html {
+  scroll-behavior: smooth;
+}
 
-    header p {
-      color: #ccc;
-      margin-top: 8px;
-      font-size: 13px;
-    }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
 
-    .hero {
-      padding: 45px 18px;
-      text-align: center;
-      background: linear-gradient(135deg, #252017, #101010);
-    }
+a {
+  color: inherit;
+  text-decoration: none;
+}
 
-    .hero h2 {
-      color: #e5c477;
-      font-size: 30px;
-      margin-bottom: 12px;
-    }
+button, input, select, textarea {
+  font: inherit;
+}
 
-    .hero p {
-      color: #ddd;
-      line-height: 1.6;
-    }
+.wrap {
+  max-width: 1150px;
+  margin: auto;
+  padding: 0 16px;
+}
 
-    .search-box {
-      display: block;
-      width: 90%;
-      max-width: 450px;
-      margin: 22px auto;
-      padding: 13px;
-      border: 1px solid #c9a44c;
-      border-radius: 8px;
-      background: #202020;
-      color: white;
-      font-size: 16px;
-    }
+/* HEADER */
 
-    .section-title {
-      color: #e5c477;
-      text-align: center;
-      margin: 30px 0 20px;
-      font-size: 25px;
-    }
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(11,11,13,.96);
+  border-bottom: 1px solid #29292d;
+}
 
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
-      gap: 16px;
-      padding: 15px;
-      max-width: 1000px;
-      margin: auto;
-    }
+.top {
+  min-height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
 
-    .card {
-      background: #1c1c1c;
-      border: 1px solid #393124;
-      border-radius: 12px;
-      overflow: hidden;
-      padding-bottom: 16px;
-      text-align: center;
-    }
+.logo {
+  font-size: 25px;
+  font-weight: 900;
+  letter-spacing: 3px;
+}
 
-    .card img {
-      width: 100%;
-      height: 190px;
-      object-fit: contain;
-      background: #fff;
-      padding: 10px;
-    }
+.logo span {
+  color: var(--red);
+}
 
-    .card h3 {
-      font-size: 16px;
-      margin: 13px 5px 8px;
-    }
+.tag {
+  color: var(--gold);
+  font-size: 10px;
+  letter-spacing: 2px;
+  margin-top: 5px;
+}
 
-    .card p {
-      color: #d9b65d;
-      font-weight: bold;
-      margin-bottom: 12px;
-    }
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  font-size: 14px;
+}
 
-    button {
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      padding: 10px 12px;
-      font-weight: bold;
-    }
+.nav a:hover {
+  color: var(--gold);
+}
 
-    .add-btn {
-      background: #d9b65d;
-      color: #111;
-      margin: 3px;
-    }
+.cart-pill {
+  border: 1px solid var(--gold);
+  padding: 9px 12px;
+  border-radius: 25px;
+}
 
-    .order-btn {
-      display: inline-block;
-      background: #218c50;
-      color: white;
-      text-decoration: none;
-      padding: 13px 20px;
-      border-radius: 7px;
-      font-weight: bold;
-      margin: 8px;
-    }
+/* BUTTONS */
 
-    .cart {
-      max-width: 700px;
-      margin: 25px auto;
-      padding: 20px;
-      background: #1c1c1c;
-      border: 1px solid #c9a44c;
-      border-radius: 10px;
-      width: 92%;
-    }
+.btn {
+  display: inline-block;
+  background: var(--red);
+  color: white;
+  border: 0;
+  border-radius: 9px;
+  padding: 12px 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
 
-    .cart h2 {
-      color: #e5c477;
-      margin-bottom: 15px;
-    }
+.btn:hover {
+  filter: brightness(1.15);
+}
 
-    .cart-item {
-      padding: 9px 0;
-      border-bottom: 1px solid #444;
-    }
+.btn.secondary {
+  background: transparent;
+  color: var(--gold);
+  border: 1px solid var(--gold);
+}
 
-    .cart-total {
-      margin: 18px 0;
-      font-size: 19px;
-      color: #e5c477;
-    }
+.btn.small {
+  padding: 9px;
+  font-size: 13px;
+}
 
-    .empty {
-      color: #bbb;
-    }
+/* HERO */
 
-    footer {
-      background: #080808;
-      text-align: center;
-      padding: 25px 15px;
-      margin-top: 30px;
-      color: #bbb;
-      line-height: 1.8;
-    }
+.hero {
+  padding: 55px 0;
+  background:
+    radial-gradient(ellipse at 80% 20%, #6c1424, transparent 45%),
+    linear-gradient(115deg, #171719, #0b0b0d);
+  border-bottom: 1px solid #27272b;
+}
 
-    footer strong {
-      color: #d9b65d;
-    }
-  </style>
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: 25px;
+  align-items: center;
+}
+
+.eyebrow {
+  color: var(--gold);
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  font-size: clamp(35px, 6vw, 64px);
+  line-height: 1.05;
+  margin: 17px 0;
+}
+
+.hero h1 span {
+  color: var(--red);
+}
+
+.hero p {
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.hero-art {
+  min-height: 250px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #4b3136;
+  border-radius: 22px;
+  background: linear-gradient(145deg, #262023, #101012);
+  font-size: 100px;
+}
+
+/* SECTIONS */
+
+.section {
+  padding: 35px 0;
+}
+
+h2 {
+  font-size: 27px;
+  margin: 10px 0;
+}
+
+.muted, .note {
+  color: var(--muted);
+}
+
+.note {
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+/* SEARCH */
+
+.tools {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 22px 0;
+}
+
+.tools input,
+.tools select,
+.admin-form input,
+.admin-form select,
+.admin-form textarea {
+  background: #1b1b1f;
+  color: white;
+  border: 1px solid #414148;
+  border-radius: 9px;
+  padding: 12px;
+  min-width: 0;
+}
+
+.tools input {
+  flex: 1;
+  min-width: 180px;
+}
+
+/* PRODUCTS */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 15px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-art {
+  height: 165px;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(circle, #42242b, #1a171b 70%);
+  font-size: 65px;
+  position: relative;
+}
+
+.product-art small {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: var(--gold);
+  color: #17120a;
+  padding: 5px 8px;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.card-body {
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  flex: 1;
+}
+
+.brand {
+  font-size: 11px;
+  color: var(--gold);
+  letter-spacing: 1px;
+}
+
+.card h3 {
+  margin: 0;
+  font-size: 17px;
+}
+
+.desc {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 8px;
+}
+
+.price {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.size {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.empty {
+  padding: 30px;
+  text-align: center;
+  border: 1px dashed #444;
+  grid-column: 1 / -1;
+  color: var(--muted);
+}
+
+/* CART */
+
+.cart-layout {
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: 18px;
+}
+
+.box {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 15px;
+  padding: 18px;
+}
+
+.cart-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.qty {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.qty button {
+  background: #2b2b30;
+  border: 1px solid #494950;
+  color: white;
+  border-radius: 6px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.totals {
+  display: flex;
+  justify-content: space-between;
+  margin: 14px 0;
+}
+
+/* FEATURES */
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.feature {
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--panel);
+}
+
+.feature b {
+  display: block;
+  color: var(--gold);
+  margin-bottom: 9px;
+}
+
+/* ADMIN */
+
+.admin {
+  background: #121214;
+  border-top: 1px solid var(--line);
+}
+
+.admin-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.admin-form textarea {
+  grid-column: 1 / -1;
+  min-height: 80px;
+}
+
+.admin-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.status {
+  color: var(--gold);
+  font-size: 12px;
+  margin-top: 12px;
+  line-height: 1.6;
+}
+
+/* FOOTER */
+
+.footer {
+  padding: 25px 0;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.footer b {
+  color: white;
+}
+
+/* MOBILE */
+
+@media (max-width: 850px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hero-grid,
+  .cart-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-art {
+    min-height: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+  .top {
+    padding: 12px 0;
+    align-items: flex-start;
+  }
+
+  .logo {
+    font-size: 20px;
+  }
+
+  .nav {
+    gap: 8px;
+    font-size: 12px;
+  }
+
+  .grid {
+    gap: 10px;
+  }
+
+  .product-art {
+    height: 125px;
+    font-size: 48px;
+  }
+
+  .card-body {
+    padding: 10px;
+  }
+
+  .card h3 {
+    font-size: 15px;
+  }
+
+  .price {
+    font-size: 17px;
+  }
+
+  .hero {
+    padding: 35px 0;
+  }
+
+  .features,
+  .admin-form {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-form textarea {
+    grid-column: auto;
+  }
+
+  h2 {
+    font-size: 23px;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <header>
-    <h1>R PERFUME</h1>
-    <p>Luxury Fragrances • Premium Collection</p>
-  </header>
-
-  <section class="hero">
-    <h2>Discover Your Signature Scent</h2>
-    <p>Explore fragrances for every mood and occasion.</p>
-    <p>Find your fragrance. Make your impression.</p>
-  </section>
-
-  <input
-    type="search"
-    id="search"
-    class="search-box"
-    placeholder="Search perfumes..."
-    aria-label="Search perfumes"
-  >
-
-  <h2 class="section-title">Our Collection</h2>
-
-  <section class="products" id="products"></section>
-
-  <section class="cart">
-    <h2>🛒 Your Shopping Cart</h2>
-    <div id="cart-items" class="empty">Your cart is empty.</div>
-    <div class="cart-total">
-      Total: ₹<span id="total">0</span>
+<header>
+  <div class="wrap top">
+    <div>
+      <div class="logo">R <span>PERFUME</span></div>
+      <div class="tag">FIND YOUR SIGNATURE SCENT</div>
     </div>
-    <button class="order-btn" onclick="checkout()">
-      Order on WhatsApp
-    </button>
-  </section>
 
-  <footer>
-    <strong>R PERFUME</strong>
-    <p>Thank you for choosing our fragrance collection.</p>
-    <p>Orders are confirmed directly with our shop.</p>
-    <p>© 2026 R PERFUME</p>
-  </footer>
+    <nav class="nav">
+      <a href="#shop">Shop</a>
+      <a href="#cart">Cart</a>
+      <a href="#about">About</a>
+      <a href="#admin">Admin</a>
+      <a class="cart-pill" href="#cart">
+        🛒 <span id="cart-count">0</span>
+      </a>
+    </nav>
+  </div>
+</header>
 
-  <script>
-    // Demo products and prices.
-    // Replace these with your actual stock and prices.
-    const perfumes = [
-      {
-        name: "Luxury Oud",
-        price: 799,
-        image: "https://placehold.co/400x500/f4f0e8/252017?text=Luxury+Oud"
-      },
-      {
-        name: "Royal Amber",
-        price: 699,
-        image: "https://placehold.co/400x500/f4f0e8/252017?text=Royal+Amber"
-      },
-      {
-        name: "Fresh Aqua",
-        price: 499,
-        image: "https://placehold.co/400x500/f4f0e8/252017?text=Fresh+Aqua"
-      },
-      {
-        name: "Midnight Musk",
-        price: 599,
-        image: "https://placehold.co/400x500/f4f0e8/252017?text=Midnight+Musk"
-      },
-      {
-        name: "Golden Essence",
-        price: 899,
-        image: "https://placehold.co/400x500/f4f0e8/252017?text=Golden+Essence"
-      },
-      {
-        name: "Classic Fresh",
-        price: 399,
-        image: "https://placehold.co/400x500/f4f0e8/252017?text=Classic+Fresh"
-      }
-    ];
+<main>
 
-    const cart = [];
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Fragrance • Style • You</div>
 
-    const productArea = document.getElementById("products");
-    const search = document.getElementById("search");
+      <h1>
+        A scent that says
+        <span>everything.</span>
+      </h1>
 
-    function showProducts(filter = "") {
-      productArea.innerHTML = "";
+      <p>
+        Explore fragrances for every mood and budget.
+        Add your favourites to the cart and send your order
+        directly to our WhatsApp.
+      </p>
 
-      const filtered = perfumes.filter(perfume =>
-        perfume.name.toLowerCase().includes(filter.toLowerCase())
-      );
+      <a class="btn" href="#shop">Explore Collection →</a>
+    </div>
 
-      if (filtered.length === 0) {
-        productArea.textContent = "No perfumes found.";
-        return;
-      }
+    <div class="hero-art">🧴✨</div>
+  </div>
+</section>
 
-      filtered.forEach(perfume => {
-        const index = perfumes.indexOf(perfume);
-        const card = document.createElement("article");
-        card.className = "card";
+<section class="section wrap" id="shop">
+  <div class="eyebrow">THE COLLECTION</div>
+  <h2>Find your fragrance</h2>
 
-        const img = document.createElement("img");
-        img.src = perfume.image;
-        img.alt = perfume.name;
-        img.loading = "lazy";
+  <p class="muted">
+    Demo products. Update product names and prices to match your stock.
+  </p>
 
-        img.onerror = function () {
-          this.onerror = null;
-          this.src =
-            "data:image/svg+xml," +
-            encodeURIComponent(
-              '<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300">' +
-              '<rect width="100%" height="100%" fill="#eee8dc"/>' +
-              '<text x="50%" y="45%" text-anchor="middle" font-size="24" fill="#594522">R PERFUME</text>' +
-              '<text x="50%" y="60%" text-anchor="middle" font-size="16" fill="#594522">Fragrance</text>' +
-              '</svg>'
-            );
-        };
+  <div class="tools">
+    <input id="search" type="search"
+      placeholder="Search perfume or brand...">
 
-        const title = document.createElement("h3");
-        title.textContent = perfume.name;
+    <select id="category">
+      <option value="all">All price ranges</option>
+      <option value="budget">₹100–₹300</option>
+      <option value="mid">₹301–₹700</option>
+      <option value="premium">₹701–₹1500+</option>
+    </select>
 
-        const price = document.createElement("p");
-        price.textContent = "₹" + perfume.price;
+    <select id="sort">
+      <option value="featured">Featured</option>
+      <option value="low">Price: low to high</option>
+      <option value="high">Price: high to low</option>
+      <option value="name">Name A–Z</option>
+    </select>
+  </div>
 
-        const button = document.createElement("button");
-        button.className = "add-btn";
-        button.textContent = "Add to Cart";
-        button.onclick = () => addToCart(index);
+  <div class="grid" id="products"></div>
+</section>
 
-        card.append(img, title, price, button);
-        productArea.appendChild(card);
-      });
-    }
+<section class="section wrap" id="cart">
+  <div class="eyebrow">YOUR BAG</div>
+  <h2>Shopping cart</h2>
 
-    function addToCart(index) {
-      cart.push(perfumes[index]);
-      showCart();
-    }
+  <div class="cart-layout">
+    <div class="box">
+      <div id="cart-items" class="muted">
+        Your cart is empty.
+      </div>
+    </div>
 
-    function showCart() {
-      const area = document.getElementById("cart-items");
-      area.innerHTML = "";
+    <div class="box">
+      <h3>Order summary</h3>
 
-      if (cart.length === 0) {
-        area.textContent = "Your cart is empty.";
-        area.className = "empty";
-      } else {
-        area.className = "";
+      <div class="totals">
+        <span>Items</span>
+        <b id="summary-count">0</b>
+      </div>
 
-        cart.forEach((item, index) => {
-          const row = document.createElement("div");
-          row.className = "cart-item";
-          row.textContent =
-            item.name + " — ₹" + item.price + " ";
+      <div class="totals">
+        <span>Total</span>
+        <b id="summary-total">₹0</b>
+      </div>
 
-          const remove = document.createElement("button");
-          remove.className = "add-btn";
-          remove.textContent = "Remove";
-          remove.onclick = () => {
-            cart.splice(index, 1);
-            showCart();
-          };
+      <button class="btn" style="width:100%"
+        onclick="checkout()">
+        Order on WhatsApp
+      </button>
 
-          row.appendChild(remove);
-          area.appendChild(row);
-        });
-      }
+      <p class="note">
+        No online payment is collected by this demo website.
+        Confirm product availability, delivery charges and
+        payment method with the shop.
+      </p>
+    </div>
+  </div>
+</section>
 
-      const total = cart.reduce((sum, item) => sum + item.price, 0);
-      document.getElementById("total").textContent = total;
-    }
+<section class="section wrap" id="about">
+  <div class="eyebrow">WHY R PERFUME</div>
+  <h2>Fragrance made personal</h2>
 
-    search.addEventListener("input", () => {
-      showProducts(search.value);
+  <div class="features">
+    <div class="feature">
+      <b>✦ Options for every budget</b>
+      <span class="muted">
+        Explore affordable and premium fragrances.
+      </span>
+    </div>
+
+    <div class="feature">
+      <b>✦ Easy WhatsApp ordering</b>
+      <span class="muted">
+        Send your order details directly to the shop.
+      </span>
+    </div>
+
+    <div class="feature">
+      <b>✦ Personal service</b>
+      <span class="muted">
+        Confirm availability and delivery details directly.
+      </span>
+    </div>
+  </div>
+</section>
+
+<section class="section admin" id="admin">
+  <div class="wrap">
+    <div class="eyebrow">SHOP OWNER TOOLS</div>
+    <h2>Manage products</h2>
+
+    <p class="note">
+      This demo admin area is not password-protected.
+      Changes are saved only in this browser, not in a shared
+      database. Do not enter confidential information here.
+    </p>
+
+    <div class="box">
+      <h3>Add a product</h3>
+
+      <div class="admin-form">
+        <input id="p-name" placeholder="Product name">
+        <input id="p-brand" placeholder="Brand / maker">
+
+        <input id="p-price" type="number" min="1"
+          placeholder="Price in ₹">
+
+        <input id="p-size" placeholder="Size (e.g. 50 ml)">
+
+        <select id="p-category">
+          <option value="budget">₹100–₹300</option>
+          <option value="mid">₹301–₹700</option>
+          <option value="premium">₹701–₹1500+</option>
+        </select>
+
+        <input id="p-icon" placeholder="Emoji (e.g. 🧴)">
+
+        <textarea id="p-desc"
+          placeholder="Short description"></textarea>
+      </div>
+
+      <div class="admin-actions">
+        <button class="btn" onclick="addProduct()">
+          Add product
+        </button>
+
+        <button class="btn secondary" onclick="exportProducts()">
+          Export product list
+        </button>
+
+        <button class="btn secondary" onclick="resetProducts()">
+          Reset demo products
+        </button>
+      </div>
+
+      <div class="status" id="admin-status" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <b>R PERFUME</b><br>
+    Fragrance • Style • You<br>
+    Demo store. Verify products, prices and stock before selling.<br>
+    © <span id="year"></span> R PERFUME
+  </div>
+</footer>
+
+<script>
+"use strict";
+
+/* SHOP WHATSAPP NUMBER */
+
+const WHATSAPP_NUMBER = "919699955142";
+
+/* DEMO PRODUCTS */
+
+const initialProducts = [
+  {
+    id: 1,
+    name: "Everyday Fresh",
+    brand: "R PERFUME PICKS",
+    price: 199,
+    size: "30 ml",
+    category: "budget",
+    icon: "🌿",
+    desc: "A fresh everyday fragrance. Demo listing."
+  },
+  {
+    id: 2,
+    name: "Classic Musk",
+    brand: "R PERFUME PICKS",
+    price: 299,
+    size: "30 ml",
+    category: "budget",
+    icon: "🌙",
+    desc: "A warm musk-inspired scent. Demo listing."
+  },
+  {
+    id: 3,
+    name: "Urban Blue",
+    brand: "R PERFUME PICKS",
+    price: 499,
+    size: "50 ml",
+    category: "mid",
+    icon: "🌊",
+    desc: "A crisp, modern fragrance. Demo listing."
+  },
+  {
+    id: 4,
+    name: "Amber Night",
+    brand: "R PERFUME PICKS",
+    price: 699,
+    size: "50 ml",
+    category: "mid",
+    icon: "✨",
+    desc: "A rich amber-inspired scent. Demo listing."
+  },
+  {
+    id: 5,
+    name: "Designer Fresh",
+    brand: "DEMO PRODUCT",
+    price: 999,
+    size: "50 ml",
+    category: "premium",
+    icon: "💎",
+    desc: "Demo listing. Replace with a verified product."
+  },
+  {
+    id: 6,
+    name: "Signature Intense",
+    brand: "R PERFUME PICKS",
+    price: 1499,
+    size: "100 ml",
+    category: "premium",
+    icon: "🖤",
+    desc: "A bold evening fragrance. Demo listing."
+  }
+];
+
+/* LOAD AND SAVE */
+
+function load(key, fallback) {
+  try {
+    const value = localStorage.getItem(key);
+    return value ? JSON.parse(value) :
+      JSON.parse(JSON.stringify(fallback));
+  } catch (error) {
+    return JSON.parse(JSON.stringify(fallback));
+  }
+}
+
+let products = load("rperfume-products", initialProducts);
+let cart = load("rperfume-cart", []);
+
+if (!Array.isArray(products)) {
+  products = JSON.parse(JSON.stringify(initialProducts));
+}
+
+if (!Array.isArray(cart)) {
+  cart = [];
+}
+
+function save() {
+  try {
+    localStorage.setItem(
+      "rperfume-products",
+      JSON.stringify(products)
+    );
+
+    localStorage.setItem(
+      "rperfume-cart",
+      JSON.stringify(cart)
+    );
+  } catch (error) {
+    console.warn("Could not save local store data.", error);
+  }
+}
+
+/* HELPERS */
+
+function money(amount) {
+  return "₹" + Number(amount).toLocaleString("en-IN");
+}
+
+function escapeHTML(value) {
+  return String(value ?? "").replace(/[&<>"']/g, function(char) {
+    return {
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#39;"
+    }[char];
+  });
+}
+
+/* DISPLAY PRODUCTS */
+
+function renderProducts() {
+  const query = document.getElementById("search")
+    .value.trim().toLowerCase();
+
+  const category = document.getElementById("category").value;
+  const sort = document.getElementById("sort").value;
+
+  let list = products.filter(function(product) {
+    const text = (
+      product.name + " " +
+      product.brand + " " +
+      product.desc
+    ).toLowerCase();
+
+    return text.includes(query) &&
+      (category === "all" || product.category === category);
+  });
+
+  if (sort === "low") {
+    list.sort((a, b) => a.price - b.price);
+  }
+
+  if (sort === "high") {
+    list.sort((a, b) => b.price - a.price);
+  }
+
+  if (sort === "name") {
+    list.sort((a, b) => a.name.localeCompare(b.name));
+  }
+
+  const element = document.getElementById("products");
+
+  if (!list.length) {
+    element.innerHTML =
+      '<div class="empty">No products found. Try another search.</div>';
+    return;
+  }
+
+  element.innerHTML = list.map(function(product) {
+    return `
+      <article class="card">
+        <div class="product-art">
+          <small>${escapeHTML(product.size || "Fragrance")}</small>
+          ${escapeHTML(product.icon || "🧴")}
+        </div>
+
+        <div class="card-body">
+          <div class="brand">${escapeHTML(product.brand)}</div>
+
+          <h3>${escapeHTML(product.name)}</h3>
+
+          <div class="desc">
+            ${escapeHTML(product.desc || "Fragrance")}
+          </div>
+
+          <div class="price-row">
+            <span class="price">${money(product.price)}</span>
+            <span class="size">${escapeHTML(product.size || "")}</span>
+          </div>
+
+          <button class="btn small"
+            onclick="addToCart(${Number(product.id)})">
+            Add to cart
+          </button>
+        </div>
+      </article>
+    `;
+  }).join("");
+}
+
+/* SHOPPING CART */
+
+function addToCart(id) {
+  const product = products.find(item => item.id === id);
+
+  if (!product) return;
+
+  const existing = cart.find(item => item.id === id);
+
+  if (existing) {
+    existing.qty++;
+  } else {
+    cart.push({
+      id: product.id,
+      name: product.name,
+      brand: product.brand,
+      price: product.price,
+      size: product.size,
+      qty: 1
     });
+  }
 
-    function checkout() {
-      if (cart.length === 0) {
-        alert("Please add a perfume to your cart first.");
-        return;
-      }
+  save();
+  renderCart();
 
-      // Replace this with your shop's WhatsApp number.
-      const phone = "919699955142";
+  document.getElementById("cart")
+    .scrollIntoView({ behavior: "smooth" });
+}
 
-      let message = "Hello R PERFUME! I want to order:\n\n";
+function changeQty(id, delta) {
+  const item = cart.find(item => item.id === id);
 
-      cart.forEach(item => {
-        message += item.name + " - Rs. " + item.price + "\n";
-      });
+  if (!item) return;
 
-      const total = cart.reduce((sum, item) => sum + item.price, 0);
+  item.qty += delta;
 
-      message += "\nTotal: Rs. " + total;
-      message += "\nPlease confirm availability and delivery.";
+  if (item.qty <= 0) {
+    cart = cart.filter(item => item.id !== id);
+  }
 
-      const url =
-        "https://wa.me/" + phone +
-        "?text=" + encodeURIComponent(message);
+  save();
+  renderCart();
+}
 
-      window.open(url, "_blank");
-    }
+function renderCart() {
+  const element = document.getElementById("cart-items");
 
-    showProducts();
-    showCart();
-  </script>
+  if (!cart.length) {
+    element.innerHTML =
+      '<p class="muted">Your cart is empty.</p>';
+  } else {
+    element.innerHTML = cart.map(function(item) {
+      return `
+        <div class="cart-item">
+          <div>
+            <b>${escapeHTML(item.name)}</b>
 
-</body>
-</html>
+            <div class="note">
+              ${money(item.price)} each · ${escapeHTML(item.size || "")}
+            </div>
+
+            <div class="qty">
+              <button onclick="changeQty(${Number(item.id)},-1)"
+                aria-label="Decrease quantity">−</button>
+
+              <span>${Number(item.qty)}</span>
+
+              <button onclick="changeQty(${Number(item.id)},1)"
+                aria-label="Increase quantity">+</button>
+
+              <button class="btn small secondary"
+                onclick="changeQty(${Number(item.id)},-${Number(item.qty)})">
+                Remove
+              </button>
+            </div>
+          </div>
+
+          <b>${money(item.price * item.qty)}</b>
+        </div>
+      `;
+    }).join("");
+  }
+
+  const count = cart.reduce(
+    (sum, item) => sum + item.qty, 0
+  );
+
+  const total = cart.reduce(
+    (sum, item) => sum + item.price * item.qty, 0
+  );
+
+  document.getElementById("cart-count").textContent = count;
+  document.getElementById("summary-count").textContent = count;
+  document.getElementById("summary-total").textContent = money(total);
+}
+
+/* WHATSAPP ORDER */
+
+function checkout() {
+  if (!cart.length) {
+    alert("Your cart is empty. Add a perfume first.");
+    return;
+  }
+
+  const total = cart.reduce(
+    (sum, item) => sum + item.price * item.qty, 0
+  );
+
+  let message = "Hello R PERFUME! I would like to place an order:\n\n";
+
+  cart.forEach(function(item, index) {
+    message +=
+      (index + 1) + ". " +
+      item.name + " (" + (item.size || "Size not specified") + ")" +
+      " x " + item.qty +
+      " — " + money(item.price * item.qty) + "\n";
+  });
+
+  message +=
+    "\nEstimated total: " + money(total) +
+    "\nPlease confirm availability, delivery charges and payment options.";
+
+  const url =
+    "https://wa.me/" + WHATSAPP_NUMBER +
+    "?text=" + encodeURIComponent(message);
+
+  window.open(url, "_blank");
+}
+
+/* ADD PRODUCT */
+
+function addProduct() {
+  const name = document.getElementById("p-name").value.trim();
+
+  const brand =
+    document.getElementById("p-brand").value.trim() ||
+    "R PERFUME";
+
+  const price = Number(
+    document.getElementById("p-price").value
+  );
+
+  const size = document.getElementById("p-size").value.trim();
+
+  const category = document.getElementById("p-category").value;
+
+  const icon =
+    document.getElementById("p-icon").value.trim() || "🧴";
+
+  const desc =
+    document.getElementById("p-desc").value.trim() || "Fragrance";
+
+  const status = document.getElementById("admin-status");
+
+  if (!name || !Number.isFinite(price) || price <= 0) {
+    status.textContent =
+      "Ente
